@@ -20,6 +20,22 @@ builder.Services.AddSingleton<IDAPI, DAPIrest>();
 builder.Services.AddAutoMapper(typeof(CepimMapping.Mapping.CepimMapping));
 builder.Services.AddAutoMapper(typeof(PEPMapping.Mapping.PEPMapping));
 //o mapping ta "errado"
+builder.Services.AddCors(options =>
+{
+        options.AddPolicy("AllowAll",
+            builder => builder.AllowAnyOrigin()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
+});
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<ICepimService, CepimService>();
+
+builder.Services.AddSingleton<IPEPService, PEPService>();
+builder.Services.AddSingleton<IDAPI, DAPIrest>();
+builder.Services.AddAutoMapper(typeof(CepimMapping.Mapping.CepimMapping));
+builder.Services.AddAutoMapper(typeof(PEPMapping.Mapping.PEPMapping));
 
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
@@ -27,9 +43,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+

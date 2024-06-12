@@ -244,3 +244,4 @@
 /home/davivalvassori/RiderProjects/WebApplication7/WebApplication7/bin/Debug/net8.0/System.Text.Encodings.Web.dll
 /home/davivalvassori/RiderProjects/WebApplication7/WebApplication7/bin/Debug/net8.0/System.Text.Json.dll
 /home/davivalvassori/RiderProjects/WebApplication7/WebApplication7/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
+/home/davivalvassori/RiderProjects/WebApplication7/WebApplication7/obj/Debug/net8.0/WebApplication7.sourcelink.json
